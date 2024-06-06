@@ -1,6 +1,6 @@
 
 texttodna: texttodna.cpp
-	g++ -O3 texttodna.cpp -o texttodna -std=c++11 -lboost_program_options
+	g++ -O3 texttodna.cpp -o texttodna -std=c++11 -lboost_program_options -fopenmp
 	#g++ -O3 texttodna.cpp -o texttodna -std=c++11 -lboost_program_options -L/Users/reinhardheckel/include/boost_1_55_0/stage/lib
 
 test: test1

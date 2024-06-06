@@ -442,10 +442,12 @@ void EnDecode<Innercode,Outercode>::decode(string& str, const vector<string>& dr
 
 		cout << "decoding block " << b << endl;
 		vector< vector<GFO> > infrec(nuss);
+        #pragma omp parallel for
 		for(unsigned nb=0;nb<nuss;++nb){
 			//pair<unsigned,unsigned> erctroc = outercode.RS_decode_spec(infrec[nb],cw[nb]);
+            cout << "\tstart part " << nb << "/" << nuss << endl;
 			pair<unsigned,unsigned> erctroc = outercode.RS_shortened_decode(infrec[nb],cw[nb]);
-			cout << "\tpart " << nb << "/" << nuss << endl;
+			cout << "\tfinished part " << nb << "/" << nuss << endl;
 			if(nb == nuss-1){
 				cout << "\touter code: " << erctroc.first << " errasures, " << erctroc.second << " errors corrected"<< endl;
 			}
